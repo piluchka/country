@@ -1,27 +1,51 @@
-# Country
+Country Application
+This project is a web application built using Angular to manage and display information about various countries.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+Features
+Browse and search for countries.
+View detailed information about each country.
+Responsive design for various screen sizes.
+Architecture Overview
+The application is structured using Angular components, services, and modules. It follows a modular approach, making it easy to scale and maintain.
 
-## Development server
+Installation
+Clone the repository:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+bash
+Copy code
+git clone https://github.com/piluchka/country.git
+cd country
+Install dependencies:
 
-## Code scaffolding
+bash
+Copy code
+npm install
+Running the Application
+Start the development server:
+bash
+Copy code
+ng serve
+Navigate to http://localhost:4200/ to view the application.
+Building the Application
+To build the application:
+bash
+Copy code
+ng build
+The build artifacts will be stored in the dist/ directory.
+Running Tests
+Run unit tests:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+bash
+Copy code
+ng test
+Run end-to-end tests:
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+bash
+Copy code
+ng e2e
+Libraries and Frameworks Used
+Angular: Framework for building the application.
+Karma: Test runner for unit tests.
+SCSS: CSS preprocessor for styling.
+Further Help
+For additional help, you can refer to the Angular CLI documentation.
