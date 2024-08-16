@@ -1,0 +1,9 @@
+@use "sass:math";
+@import "../../../assets/styles/functions";
+.holday-card {
+  padding: toREM(10) toREM(20);
+  height: 100%;
+}
+.holday-card__footer {
+  padding: toREM(5) toREM(10);
+}

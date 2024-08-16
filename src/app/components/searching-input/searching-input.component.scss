@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: center; /* Выравнивает элемент по горизонтали */
+  align-items: center; /* Выравнивает элемент по вертикали */
+}
+
+mat-form-field {
+  flex: 1;
+}

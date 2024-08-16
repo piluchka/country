@@ -1,0 +1,11 @@
+@use "sass:math";
+@import "../../../assets/styles/functions";
+:host {
+  width: 100%;
+}
+
+.holidays {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  gap: toREM(20);
+}

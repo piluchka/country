@@ -1,0 +1,20 @@
+<app-searching-input></app-searching-input>
+<div class="info">
+  <h1>{{ countryInfo?.commonName }}</h1>
+  <p>Official name: {{ countryInfo?.officialName }}</p>
+  <p>Region: {{ countryInfo?.region }}</p>
+  <div class="info__borders">
+    <p>Country borders:</p>
+    <ul>
+      @for (country of countryInfo?.borders; track $index) {
+      <li>{{ country.commonName }}</li>
+      }
+    </ul>
+  </div>
+</div>
+<h2>Country's holidays!</h2>
+<div class="holidays">
+  @for (holiday of holidaysInfo; track $index) {
+  <app-holiday-card [holidayInfo]="holiday"></app-holiday-card>
+  }
+</div>
