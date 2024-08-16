@@ -10,9 +10,9 @@ export interface CountryState {
 }
 
 export const initialState: CountryState = {
-  allCountries: null,
+  allCountries: [],
   selectedCountryInfo: null,
-  countryHolidayInfo: null,
+  countryHolidayInfo: [],
 
   error: null,
 };

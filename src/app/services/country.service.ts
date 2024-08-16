@@ -1,6 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Country, CountryInfo } from '../models/country.model';
 import { environment } from '../../environments/environment.development';
 import { RequestStringPaths } from '../enums/requests.enum';
@@ -26,6 +26,12 @@ export class CountryService {
   getHolidayInfo(year: string, countryCode: string): Observable<HolidayInfo[]> {
     return this.http.get<HolidayInfo[]>(
       `${environment.apiBaseUrl}${RequestStringPaths.HOLIDAY_INFO}/${year}/${countryCode}`
+    );
+  }
+
+  getNextHolidayInfo(countryCode: string): Observable<HolidayInfo[]> {
+    return this.http.get<HolidayInfo[]>(
+      `${environment.apiBaseUrl}${RequestStringPaths.NEXT_HOLIDAY_INFO}/${countryCode}`
     );
   }
 }

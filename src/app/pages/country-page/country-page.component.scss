@@ -18,3 +18,20 @@
   flex-wrap: wrap;
   margin-bottom: toREM(20);
 }
+
+.homepage-link {
+  display: inline-block;
+  text-decoration: none;
+  padding: toREM(10) toREM(10);
+  background-color: #fff;
+  margin-bottom: toREM(20);
+  border-radius: toREM(10);
+  color: #000;
+  transition: all 0.3s;
+
+  @media (any-hover: hover) {
+    &:hover {
+      color: pink;
+    }
+  }
+}

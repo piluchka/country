@@ -16,5 +16,5 @@ import { HolidayInfo } from '../../models/holidays.model';
 export class HolidayCardComponent {
   @Input() holidayInfo: HolidayInfo | null = null;
 
-  constructor(private store: Store) {}
+  constructor() {}
 }

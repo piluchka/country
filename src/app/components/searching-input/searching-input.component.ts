@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
@@ -14,7 +14,8 @@ import { Country } from '../../models/country.model';
 import { Store } from '@ngrx/store';
 import { selectAllCountries } from '../../store/selectors';
 import { loadAllCountries } from '../../store/actions';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-searching-input',
@@ -31,8 +32,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
   templateUrl: './searching-input.component.html',
   styleUrl: './searching-input.component.scss',
 })
-// ! Отписка
-export class SearchingInputComponent implements OnInit {
+export class SearchingInputComponent implements OnInit, OnDestroy {
   countryForm: FormGroup = new FormGroup({});
   countryName: FormControl<string | null> = new FormControl();
 
@@ -40,6 +40,9 @@ export class SearchingInputComponent implements OnInit {
   filteredCountries: Country[] | undefined;
 
   selectedCountry: string | null = '';
+
+  countriesSubscription: Subscription = new Subscription();
+  inputSubscription: Subscription = new Subscription();
 
   constructor(private store: Store, private router: Router) {
     this.countryForm = new FormGroup({
@@ -49,13 +52,22 @@ export class SearchingInputComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadAllCountries());
-    this.store.select(selectAllCountries).subscribe((allCountries) => {
-      this.allContriesList = allCountries;
-    });
+    this.countriesSubscription = this.store
+      .select(selectAllCountries)
+      .subscribe((allCountries) => {
+        this.allContriesList = allCountries;
+      });
 
-    this.countryName.valueChanges.subscribe((value) => {
-      this.filteredCountries = this._filterCountries(value || '');
-    });
+    this.inputSubscription = this.countryName.valueChanges.subscribe(
+      (value) => {
+        this.filteredCountries = this._filterCountries(value || '');
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.countriesSubscription.unsubscribe();
+    this.inputSubscription.unsubscribe();
   }
 
   private _filterCountries(value: string): any {

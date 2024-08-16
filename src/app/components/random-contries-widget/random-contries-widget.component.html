@@ -1,5 +1,3 @@
-@for (country of randomCountries; track $index) {
-   <div class="country">
-      <h4>{{country.name}}</h4>
-   </div>
+@for (country of selectedCountries; track $index) {
+<app-widget-card [country]="country"></app-widget-card>
 }

@@ -5,7 +5,7 @@ export interface HolidayInfo {
   countryCode: string;
   fixed: boolean;
   global: boolean;
-  counties: string[] | null;
+  countries: string[] | null;
   launchYear: string | null;
   types: string[];
 }
