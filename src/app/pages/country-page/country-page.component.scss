@@ -8,4 +8,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   gap: toREM(20);
+
+  margin-bottom: toREM(20);
+}
+
+.content-info__buttons {
+  display: flex;
+  gap: toREM(20);
+  flex-wrap: wrap;
+  margin-bottom: toREM(20);
 }

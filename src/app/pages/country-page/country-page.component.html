@@ -13,8 +13,21 @@
   </div>
 </div>
 <h2>Country's holidays!</h2>
-<div class="holidays">
-  @for (holiday of holidaysInfo; track $index) {
-  <app-holiday-card [holidayInfo]="holiday"></app-holiday-card>
-  }
+<div class="content-info">
+  <div class="holidays">
+    @for (holiday of holidaysInfo; track $index) {
+    <app-holiday-card [holidayInfo]="holiday"></app-holiday-card>
+    }
+  </div>
+  <div class="content-info__buttons">
+    @for (year of yearsList; track year) {
+    <button
+      (click)="getHolidaysInfo(year)"
+      mat-raised-button
+      class="content-info__button"
+    >
+      {{ year }}
+    </button>
+    }
+  </div>
 </div>
